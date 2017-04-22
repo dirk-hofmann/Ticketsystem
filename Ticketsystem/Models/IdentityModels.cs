@@ -29,5 +29,8 @@ namespace Ticketsystem.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }
