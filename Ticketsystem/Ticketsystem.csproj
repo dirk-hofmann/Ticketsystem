@@ -205,20 +205,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704220938201_InitialCreate.cs" />
-    <Compile Include="Migrations\201704220938201_InitialCreate.Designer.cs">
-      <DependentUpon>201704220938201_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201704291433164_Initial.cs" />
+    <Compile Include="Migrations\201704291433164_Initial.Designer.cs">
+      <DependentUpon>201704291433164_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704221027318_Initial.cs" />
-    <Compile Include="Migrations\201704221027318_Initial.Designer.cs">
-      <DependentUpon>201704221027318_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201704291450207_TicketStatusAdded.cs" />
+    <Compile Include="Migrations\201704291450207_TicketStatusAdded.Designer.cs">
+      <DependentUpon>201704291450207_TicketStatusAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704221442419_ProjectTable.cs" />
-    <Compile Include="Migrations\201704221442419_ProjectTable.Designer.cs">
-      <DependentUpon>201704221442419_ProjectTable.cs</DependentUpon>
+    <Compile Include="Migrations\201704291615179_CustomerCompany.cs" />
+    <Compile Include="Migrations\201704291615179_CustomerCompany.Designer.cs">
+      <DependentUpon>201704291615179_CustomerCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704300859149_Editors.cs" />
+    <Compile Include="Migrations\201704300859149_Editors.Designer.cs">
+      <DependentUpon>201704300859149_Editors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704300906136_UserProjects.cs" />
+    <Compile Include="Migrations\201704300906136_UserProjects.Designer.cs">
+      <DependentUpon>201704300906136_UserProjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Attachment.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -238,6 +250,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -308,14 +321,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704220938201_InitialCreate.resx">
-      <DependentUpon>201704220938201_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704291433164_Initial.resx">
+      <DependentUpon>201704291433164_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704221027318_Initial.resx">
-      <DependentUpon>201704221027318_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704291450207_TicketStatusAdded.resx">
+      <DependentUpon>201704291450207_TicketStatusAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704221442419_ProjectTable.resx">
-      <DependentUpon>201704221442419_ProjectTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704291615179_CustomerCompany.resx">
+      <DependentUpon>201704291615179_CustomerCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704300859149_Editors.resx">
+      <DependentUpon>201704300859149_Editors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704300906136_UserProjects.resx">
+      <DependentUpon>201704300906136_UserProjects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

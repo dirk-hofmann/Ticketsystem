@@ -19,10 +19,27 @@ namespace Ticketsystem.Models
 
         public DateTime CreationDate { get; set; }
 
+        public virtual List<Message> Messages { get; set; }
+
+        public TimeSpan EstimatedExpense { get; set; }
+
+        public TicketStatus Status { get; set; }
+
         // Constructor
         public Ticket()
         {
+            Status = TicketStatus.Created;
             CreationDate = DateTime.Now;
         }
     }
+
+    public enum TicketStatus
+    {
+        Created,
+        Ordered,
+        InProgress,
+        WaitingForResponse,
+        Closed
+    };
+
 }

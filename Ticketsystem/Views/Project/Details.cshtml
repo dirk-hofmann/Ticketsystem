@@ -18,21 +18,15 @@
             @Html.DisplayFor(model => model.Title)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
     </dl>
-
-    <table class="table">
-
-        @foreach (var ticket in Model.Tickets)
-        {
-            <tr>
-                <td>
-                    @ticket.Title
-            </td>
-        </tr>
-        }
-
-      </table>
-
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectId }) |

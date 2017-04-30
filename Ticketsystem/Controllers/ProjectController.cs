@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,7 +19,27 @@ namespace Ticketsystem.Controllers
         // GET: Project
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            if (User.IsInRole("Admin"))
+            {
+                // show all projects
+                return View(db.Projects.ToList());
+            }
+
+            if (User.IsInRole("Editor"))
+            {
+                // show all projects (todo: show only projects where the user is editor)
+                return View(db.Projects.ToList());
+            }
+
+            if (User.IsInRole("Customer"))
+            {
+                // show only projects of the user's company
+                var requestUserId = User.Identity.GetUserId();
+                var userWithCompany = db.Users.Where(x => x.Id == requestUserId).Include(x => x.Company).First();
+                return View(db.Projects.Where(x => x.Company.CompanyId == userWithCompany.Company.CompanyId).ToList());
+            }
+
+            return View();
         }
 
         // GET: Project/Details/5
@@ -28,8 +50,6 @@ namespace Ticketsystem.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Project project = db.Projects.Find(id);
-            db.Entry(project).Collection(x => x.Tickets).Load();
-
             if (project == null)
             {
                 return HttpNotFound();
@@ -48,7 +68,7 @@ namespace Ticketsystem.Controllers
         // finden Sie unter https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProjectId,Title")] Project project)
+        public ActionResult Create([Bind(Include = "ProjectId,Title,CreationDate")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +100,7 @@ namespace Ticketsystem.Controllers
         // finden Sie unter https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProjectId,Title")] Project project)
+        public ActionResult Edit([Bind(Include = "ProjectId,Title,CreationDate")] Project project)
         {
             if (ModelState.IsValid)
             {
